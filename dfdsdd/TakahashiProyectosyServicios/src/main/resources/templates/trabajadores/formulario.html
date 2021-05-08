@@ -22,19 +22,22 @@
                 <div class="row mb-3">
                     <div class="col-6">
                         <label>CODIGO TRABAJADOR</label>
-                        <input type="text" th:field="*{codigoTrabajador}" class="form-control" placeholder="INGRESE CODIGO">
+                        <input type="text" th:field="*{codigoTrabajador}" class="form-control" placeholder="INGRESE CODIGO" th:errorclass="'form-control alert-danger'"/>
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('codigoTrabajador')}" th:errors="*{codigoTrabajador}"></small>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <div class="col-6">
                         <label>NOMBRE TRABAJADOR</label>
-                        <input type="text" th:field="*{nombre}" class="form-control" placeholder="INGRESE NOMBRE">
+                        <input type="text" th:field="*{nombre}" class="form-control" placeholder="INGRESE NOMBRE" th:errorclass="'form-control alert-danger'"/>
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
                     </div>
 
                     <div class="col-6">
                         <label>APELLIDO TRABAJADOR</label>
-                        <input type="text" th:field="*{apellido}" class="form-control" placeholder="INGRESE APELLIDO">
+                        <input type="text" th:field="*{apellido}" class="form-control" placeholder="INGRESE APELLIDO" th:errorclass="'form-control alert-danger'"/>
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></small>
                     </div>
                 </div>
 
@@ -42,40 +45,55 @@
                 <div class="row mb-3">
                     <div class="col-4">
                         <label>DNI TRABAJADOR</label>
-                        <input type="text" th:field="*{dni}" class="form-control" placeholder="INGRESE DNI">
+                        <input type="text" th:field="*{dni}" class="form-control" placeholder="INGRESE DNI" th:errorclass="'form-control alert-danger'"/>
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></small>
                     </div>
 
                     <div class="col-4">
                         <label>EDAD TRABAJADOR</label>
-                        <input type="text" th:field="*{edad}" class="form-control" placeholder="INGRESE EDAD">
+                        <input type="text" th:field="*{edad}" class="form-control" placeholder="INGRESE EDAD" th:errorclass="'form-control alert-danger'"/>
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"></small>
                     </div>
 
+                    <!-- <div class="col-4">
+                        <label>SEXO TRABAJADOR</label>
+                        <input type="text" th:field="*{sexo}" class="form-control" placeholder="INGRESE SEXO" th:errorclass="'form-control alert-danger'"/>
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('sexo')}" th:errors="*{sexo}"></small>
+                    </div> -->
+                    
                     <div class="col-4">
                         <label>SEXO TRABAJADOR</label>
-                        <input type="text" th:field="*{sexo}" class="form-control" placeholder="INGRESE SEXO">
-                    </div>
+                        <select name="" id="" th:field="*{sexo}" class="form-control">
+                        <option value="masculino">masculino</option>
+                        <option value="femenino">femenino</option>
+                        <option value="otro">otro</option>
+                        </select>
+                    </div> 
+                    
                 </div>
 
 
                 <div class="row mb-3">
                     <div class="col-6">
                         <label>DIRECCION TRABAJADOR</label>
-                        <input type="text" th:field="*{direccion}" class="form-control" placeholder="INGRESE DIRECCION">
+                        <input type="text" th:field="*{direccion}" class="form-control" placeholder="INGRESE DIRECCION" th:errorclass="'form-control alert-danger'"/>
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></small>
                     </div>
 	
-					<div class="col-6">
-						<label>CARGO TRABAJADOR</label>
-						<input type="text" th:field="*{cargo}" class="form-control" placeholder="INGRESE CARGO">
-					</div>
 					<!-- <div class="col-6">
+						<label>CARGO TRABAJADOR</label>
+						<input type="text" th:field="*{cargo}" class="form-control" placeholder="INGRESE CARGO" th:errorclass="'form-control alert-danger'"/>
+						<small class="form-text text-danger" th:if="${#fields.hasErrors('cargo')}" th:errors="*{cargo}"></small>
+					</div> -->
+					
+					<div class="col-6">
                         <label>CARGO TRABAJADOR</label>
-                        <select name="" id="" class="form-control">
-                        <option hiden selected>SELECCIONE CARGO</option>
-                        <option value="">SECRETARIO</option>
-                        <option value="">ALMACENERO</option>
-                        <option value="">OPERARIO</option>
+                        <select name="" id="" th:field="*{cargo}" class="form-control">
+                        <option value="SECRETARIO">SECRETARIO</option>
+                        <option value="ALMACENERO">ALMACENERO</option>
+                        <option value="OPERARIO">OPERARIO</option>
                         </select>
-                    </div> -->
+                    </div> 
                     
                 </div>
 
@@ -83,12 +101,14 @@
                 <div class="row mb-3">
                     <div class="col-6">
                         <label>USUARIO TRABAJADOR</label>
-                        <input type="text" th:field="*{usuario}" class="form-control" placeholder="INGRESE USUARIO">
+                        <input type="text" th:field="*{usuario}" class="form-control" placeholder="INGRESE USUARIO" th:errorclass="'form-control alert-danger'"/>
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('usuario')}" th:errors="*{usuario}"></small>
                     </div>
 
                     <div class="col-6">
                         <label>CONTRASEÑA TRABAJADOR</label>
-                        <input type="text" th:field="*{contrasena}" class="form-control" placeholder="INGRESE CONTRASEÑA">
+                        <input type="text" th:field="*{contrasena}" class="form-control" placeholder="INGRESE CONTRASEÑA" th:errorclass="'form-control alert-danger'"/>
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('contrasena')}" th:errors="*{contrasena}"></small>
                     </div>
                 </div>
 				<input type="hidden" th:field="*{idTrabajador}">

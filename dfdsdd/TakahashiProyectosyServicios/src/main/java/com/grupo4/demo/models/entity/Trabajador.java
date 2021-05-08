@@ -8,7 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 //mapeando a la base de datos
 @Entity
@@ -20,28 +24,45 @@ public class Trabajador implements Serializable{
 	private Long idTrabajador;
 	
 	@NotEmpty
+	@Size(min = 1,max = 6,message = "el código debe estar entre 1 y 6 caracteres")
 	private String codigoTrabajador;
 	
+	@NotEmpty
+	@Size(min = 1,max = 25,message = "el nombre debe contener no mas de 25 caracteres")	
 	private String nombre;
 	
+	@NotEmpty
+	@Size(min = 1,max = 25,message = "el apellido debe contener no mas de 25 caracteres")
 	private String apellido;
 	
+	@NotEmpty
+	@Size(min = 1, max = 8,message = "el dni debe tener 8 dígitos")
 	private String dni;
 	
+	@NotNull
+	@Min(value = 18,message = "la edad mínima debe ser 18 años")
+	@Max(value = 65,message = "la edad máxima deve ser 65 años")
 	private int edad;
 	
+	@NotEmpty
 	private String sexo;
 	
+	@NotEmpty
+	@Size(min = 1,max =45, message = "no se pemiten mas de 45 caracteres")
 	private String direccion;
 	
+	@NotEmpty
 	private String cargo;
 	
+	@NotEmpty
+	@Size(min = 1,max = 8,message = "el usuario no debe pasar los 8 caracteres")
 	private String usuario;
 	
+	@NotEmpty
+	@Size(min = 1, max = 8, message = "la contraseña no debe pasar los 8 caracteres")
 	@Column(name="contraseña")
 	private String contrasena;
-	
-	
+		
 	private static final long serialVersionUID = 1L;
 
 	public Long getIdTrabajador() {
