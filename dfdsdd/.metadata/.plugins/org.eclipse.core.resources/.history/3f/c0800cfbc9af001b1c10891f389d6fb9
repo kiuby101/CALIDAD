@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="principal/index :: head"></head>
+<body>
+    
+    <div class="container">
+
+        <div class="card mt-3">
+            <div class="card-header text-center bg-danger text-white" th:text="${titulo}">
+               	LISTADO DE TRABAJADORES
+            </div>
+            <div class="card-body table-responsive">
+                <table class="table table-bordered table-hover" >
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>CODIGO</th>
+                            <th>NOMBRE</th>
+                            <th>APELLIDO</th>
+                            <th>DNI</th>
+                            <th>SEXO</th>
+                            <th>DIRECCION</th>
+                            <th>CARGO</th>
+                            <th>USUARIO</th>
+                            <th>CONTRASEÑA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="item: ${trabajadores}">
+                            <td><a th:href="@{form/}+${item.idTrabajador}" th:text="${item.idTrabajador}"></a></td>
+                            <td th:text="${item.codigoTrabajador}"></td>
+                            <td th:text="${item.nombre}"></td>
+                            <td th:text="${item.apellido}"></td>
+                            <td th:text="${item.dni}"></td>
+                            <td th:text="${item.sexo}"></td>
+                            <td th:text="${item.direccion}"></td>
+                            <td th:text="${item.cargo}"></td>
+                            <td th:text="${item.usuario}"></td>
+                            <td th:text="${item.contrasena}"></td>
+                            <td><a th:href="@{eliminar/}+${item.idTrabajador}" class="btn btn-danger" onclick="return confirm('Estas seguro de eliminar?');">delete</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <a th:href="@{form}" class="btn btn-info">nuevo trabajador</a>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+</html>
